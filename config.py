@@ -7,7 +7,7 @@ tokens_mapping = {
 
 wallet_path = "wallet.json"
 
-# Если хотите, чтобы в лагах был баланс до свапа ставьте True, если нет, то False
+# Если хотите, чтобы в логах был баланс до свапа ставьте True, если нет, то False
 show_balance_before_swap = True
-# Если хотите, чтобы в лагах был баланс после свапа ставьте True, если нет, то False
+# Если хотите, чтобы в логах был баланс после свапа ставьте True, если нет, то False
 show_balance_after_swap = True
