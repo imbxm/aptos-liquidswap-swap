@@ -3,6 +3,7 @@ from loguru import logger
 from aptos_sdk.account import Account
 from aptos_sdk.account_address import AccountAddress
 from aptos_sdk.bcs import Serializer
+from aptos_sdk import ed25519
 from aptos_sdk.client import RestClient
 from aptos_sdk.transactions import (
     EntryFunction,
@@ -22,10 +23,15 @@ from .constants import (
 
 
 class LiquidSwapClient(RestClient):
-    def __init__(self, node_url: str, tokens_mapping: dict, account: str):
+    def __init__(self, node_url: str, tokens_mapping: dict, hex_private_key: str):
         super().__init__(node_url)
+        private_key = ed25519.PrivateKey.from_hex(hex_private_key)
+        self.my_account = Account(
+            account_address=AccountAddress.from_key(private_key.public_key()),
+            private_key=private_key
+        )
         self.tokens_mapping = tokens_mapping
-        self.my_account = Account.load(account)
+        logger.debug(f"Аккаунт: {self.my_account.account_address}")
 
     def get_coin_info(self, token: str) -> int:
         token = self.tokens_mapping[token]
