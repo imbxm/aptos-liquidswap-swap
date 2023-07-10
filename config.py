@@ -9,3 +9,10 @@ tokens_mapping = {
 show_balance_before_swap = True
 # Если хотите, чтобы в логах был баланс после свапа ставьте True, если нет, то False
 show_balance_after_swap = True
+# Если хотите рандомизировать кошельки, то ставьте True, если нет, то False
+randomize_wallets = True
+# Если хотите делать паузы между кошельками, то ставьте True, если нет, то False
+is_sleep = True
+# Количество секунд паузы между кошельками
+sleep_from = 100
+sleep_to = 300

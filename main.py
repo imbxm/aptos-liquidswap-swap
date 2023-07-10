@@ -1,12 +1,17 @@
 import sys
 import random
+import time
 from loguru import logger
 from liquidswap.client import LiquidSwapClient
 from config import node_url, tokens_mapping, show_balance_before_swap, show_balance_after_swap
+from config import is_sleep, sleep_from, sleep_to, randomize_wallets
 
 if __name__ == "__main__":
     with open('wallets.txt', 'r', encoding='utf-8-sig') as file:
         wallets = [line.strip() for line in file]
+
+    if randomize_wallets:
+        random.shuffle(wallets)
 
     for wallet in wallets:
         liquidswap_client = LiquidSwapClient(node_url, tokens_mapping, wallet)
@@ -32,5 +37,10 @@ if __name__ == "__main__":
             if show_balance_after_swap:
                 logger.info(f"Баланс {from_token}: {liquidswap_client.get_token_balance(from_token)}; "
                             f"Баланс {to_token}: {liquidswap_client.get_token_balance(to_token)}")
+
+            if is_sleep:
+                wait_time_in_sec = random.randint(sleep_from, sleep_to)
+                logger.warning(f"Ждем {wait_time_in_sec} секунд")
+                time.sleep(wait_time_in_sec)
         except Exception:
             logger.error(f"Непредвиденная ошибка")
