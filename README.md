@@ -16,7 +16,7 @@
 
 #### Формат команды с аргументами:
 
-`python main.py from_token to_token amount`
+`python main.py from_token to_token from_amount to_amount`
 
 1. Первый аргумент: `from_token`, указывает из какого токена делать свапы
 
