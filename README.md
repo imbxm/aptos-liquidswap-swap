@@ -44,14 +44,6 @@
 
 ![alt text](photos/liquidswap-example-updated.png)
 
-### Благодарочка _(если вдруг вы щедрая душа)_
-
-Поставьте звездочку на гитхабе
-
-Или закинуть скам токенов на кошелек :)
-
-**EVM: 0x96C22103635501D380B4F2a44C815EA460693E13**
-
 ### Telegram https://t.me/sybil_v_zakone
 
 _В основе лежит репозиторий: https://github.com/WayneAl/liquidswap-sdk-python_
